@@ -1,11 +1,11 @@
 {
     "name": "neopixel",
-    "version": "0.7.7",
+    "version": "0.7.8",
     "description": "AdaFruit NeoPixel driver",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1"
+        "ws2812b": "github:martinwork/pxt-ws2812b#v0.1.3"
     },
     "files": [
         "README.md",
