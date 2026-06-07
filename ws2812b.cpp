@@ -1,5 +1,10 @@
 #include "pxt.h"
 
+#if MICROBIT_CODAL
+#else
+extern "C" void neopixel_send_buffer_core(DevicePin *pin, const uint8_t *ptr, int numBytes);
+#endif
+
 namespace ws2812b {
     //%
     void send_buffer(Buffer buf, int pin) {
