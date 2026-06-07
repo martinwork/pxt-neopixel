@@ -8,6 +8,12 @@ namespace ws2812b {
 #if MICROBIT_CODAL
         codal::neopixel_send_buffer(*pxt::getPin(pin), buf->data, buf->length);
 #else
+    #if CONFIG_ENABLED(DEVICE_BLE) && CONFIG_ENABLED(MICROBIT_BLE_ENABLED)
+        if ( bleManager.getConnected())
+        {
+            return;
+        }
+    #endif
         neopixel_send_buffer(*pxt::getPin(pin), buf->data, buf->length);
 #endif
     }
