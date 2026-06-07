@@ -14,7 +14,13 @@ namespace ws2812b {
             return;
         }
     #endif
-        neopixel_send_buffer(*pxt::getPin(pin), buf->data, buf->length);
+        // setup pin as digital
+        pxt::getPin(pin)->setDigitalValue(0);
+        wait_us(300); // initial reset
+        __disable_irq();
+        neopixel_send_buffer_core( pxt::getPin(pin), buf->data, buf->length);
+        __enable_irq();
+
 #endif
     }
 
