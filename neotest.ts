@@ -1,4 +1,6 @@
 {
+    basic.showIcon(IconNames.Skull)
+    bluetooth.startUartService()
     let strip = neopixel.create(DigitalPin.P0, 24, NeoPixelMode.RGB);
     strip.setPixelColor(0, 0xff0000)
     strip.setPixelColor(1, 0x00ff00)
@@ -65,6 +67,16 @@
 
         }
     });
+    
+    input.onButtonPressed(Button.B, () => {
+        basic.showIcon(IconNames.Happy)
+    });
+
+    basic.forever(function () {
+        bluetooth.uartWriteValue("x", input.acceleration(Dimension.X))
+        bluetooth.uartWriteValue("y", input.acceleration(Dimension.Y))
+        basic.pause(100)
+    })
 
     while (true) {
         let x = input.acceleration(Dimension.X) >> 1

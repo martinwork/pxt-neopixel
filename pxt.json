@@ -5,7 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "ws2812b": "github:martinwork/pxt-ws2812b"
+        "microphone": "*",
+        "bluetooth": "*"
     },
     "files": [
         "README.md",
@@ -16,7 +17,9 @@
         "_locales/es-ES/neopixel-strings.json",
         "_locales/fr/neopixel-strings.json",
         "_locales/fr/neopixel-jsdoc-strings.json",
-        "_locales/zh/neopixel-strings.json"
+        "_locales/zh/neopixel-strings.json",
+        "ws2812b.ts",
+        "ws2812b.cpp"
     ],
     "testFiles": [
         "neotest.ts"
@@ -25,5 +28,16 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": "SECURITY_MODE_ENCRYPTION_OPEN_LINK"
+                }
+            }
+        }
+    }
 }
