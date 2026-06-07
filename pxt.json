@@ -5,8 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "microphone": "*",
-        "bluetooth": "*"
+        "microphone": "*"
     },
     "files": [
         "README.md",
@@ -28,16 +27,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj",
-    "yotta": {
-        "config": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "open": 1,
-                    "whitelist": 0,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_OPEN_LINK"
-                }
-            }
-        }
-    }
+    "preferredEditor": "tsprj"
 }
